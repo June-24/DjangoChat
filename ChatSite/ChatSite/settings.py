@@ -73,6 +73,13 @@ WSGI_APPLICATION = 'ChatSite.wsgi.application'
 # adding ASGU, which is needed to run the server
 ASGI_APPLICATION = 'ChatSite.asgi.application'
 
+#channels
+CHANNELS_LAYER = {
+    'default':{
+        'BACKEND': 'channels.layers.InMemoryChannelLayer'
+    }
+}
+
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
