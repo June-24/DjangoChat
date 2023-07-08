@@ -1,5 +1,17 @@
 {{chatroom.name}}
-<div id="chat-messages"></div>
+<div id="chat-messages">
+    {% for message in messages %}
+    <div class="message shadow-lg p-3 m-3 rounded-lg w-1/2 bg-blue-300">
+        <div class="text-sm text-gray-500">
+            {{ message.user.username }}
+        </div>
+            {{ message.message_content }}
+        <div class="text-sm text-gray-500">
+            {{ message.date}}
+        </div>
+    </div>
+    {% endfor %}
+</div>
 <form method="post">
     <input id="message-input" type="text" name="message" placeholder="Enter Message">
     <button id="send-button" type="submit" >Send</button>
