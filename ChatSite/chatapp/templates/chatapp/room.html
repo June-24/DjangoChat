@@ -6,8 +6,10 @@
 </form>
 
 {{ chatroom.slug | json_script:"json-chatroomname" }}
+{{ request.user.username|json_script:"json-username" }}
 <script>
     const chatRoomName = JSON.parse(document.getElementById('json-chatroomname').textContent)
+    const username = JSON.parse(document.getElementById('json-username').textContent)
     const chatSocket = new WebSocket(
         'ws://'
         +window.location.host
@@ -28,7 +30,15 @@
         const message = messageInput.value
         console.log(message)
        
+        
+        chatSocket.send(JSON.stringify({
+            'message':message,
+            'username':username,
+            'room':chatRoomName
+
+        }))
         messageInput.value= ""
+
     }
 
    
