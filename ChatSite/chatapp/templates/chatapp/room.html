@@ -4,3 +4,24 @@
     <input type="text" name="message" placeholder="Enter Message">
     <button type="submit" >Send</button>
 </form>
+
+{{ chatroom.slug|json_script:"json-chatroomname"}}
+<script>
+    const chatRoomName=JSON.parse(document.getElementById('json-chatroomname').textContent)
+    console.log(chatRoomName)
+    const chatSocket=new WebSocket(
+        {% comment %} instead of https we are using ws {% endcomment %}
+        'ws://'
+        +window.location.host
+        +'/ws/chat/'
+        +chatRoomName
+        +'/'
+    )
+    chatsocket.onmessage=function(e){
+        console.log('This is a message')
+    }
+    chatsocket.onclose=function(e){
+        console.error('Chat socket closed')
+    }
+</script>
+
