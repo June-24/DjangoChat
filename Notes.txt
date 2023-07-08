@@ -5,3 +5,8 @@
 ->creating a Websocket now
 
 ->Sending Messages from a Client
+
+
+->all the django part is over
+only styling is left over
+
