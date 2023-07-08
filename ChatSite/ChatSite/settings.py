@@ -74,10 +74,11 @@ WSGI_APPLICATION = 'ChatSite.wsgi.application'
 ASGI_APPLICATION = 'ChatSite.asgi.application'
 
 #channels
-CHANNELS_LAYER = {
-    'default':{
-        'BACKEND': 'channels.layers.InMemoryChannelLayer'
-    }
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer',  # Or any other channel layer backend
+    },
 }
 
 
