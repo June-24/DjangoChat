@@ -21,7 +21,6 @@ from django.contrib.auth import views as authentication_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', authentication_views.LoginView.as_view(template_name='users/login.html'),name='login'), # Add this line include(
     path('rooms/', include('chatapp.urls')), # Add this line include()
     path('register/', user_views.register,name="register") ,
     path('login/', authentication_views.LoginView.as_view(template_name='users/login.html'),name='login'),

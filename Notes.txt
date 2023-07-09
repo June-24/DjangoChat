@@ -1,0 +1,12 @@
+->Creating a Consumer now
+->Asynchronous and Synchronous
+->building a Consumer now
+
+->creating a Websocket now
+
+->Sending Messages from a Client
+
+
+->all the django part is over
+only styling is left over
+
