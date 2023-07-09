@@ -1,2 +1,2 @@
-# DjangoChat-2.0
+# DjangoChat
  
