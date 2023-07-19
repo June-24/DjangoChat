@@ -64,7 +64,7 @@ A few points about channels in Django and why we have used it
 ## 5.Sending a message
 ![image](https://github.com/June-24/DjangoChat/assets/123622678/efb0bfa0-1aad-4e55-b2a9-faa46624138d)
 ![image](https://github.com/June-24/DjangoChat/assets/123622678/080cc8b7-b953-40cf-897c-d4cc3c93d01a)
-## 6.Two users sending messages consecutively
+## 6.Two users sending messages Simultaneously 
 ![image](https://github.com/June-24/DjangoChat/assets/123622678/0c5ef502-7f27-4415-a6e5-ea7ab498f156)
 ![image](https://github.com/June-24/DjangoChat/assets/123622678/fde8f031-68b7-4136-aed9-f547c5eb616f)
 - as we are using Django Channels, the messages displayed in an instant with no delay or refreshment of pages.
