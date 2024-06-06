@@ -6,19 +6,20 @@ import string
 import warnings
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
-import spacy
+from gensim.models import Word2Vec
+from gensim.models import KeyedVectors
 
 warnings.filterwarnings('ignore')
 
-# Load SpaCy model
-nlp = spacy.load('en_core_web_md')
+# Load a pre-trained Word2Vec model
+word2vec = KeyedVectors.load_word2vec_format('GoogleNews-vectors-negative300.bin', binary=True)
 
 f = open('C:\\Users\\User\\Downloads\\Act1Scene1.txt', 'r', errors='ignore')
 raw = f.read()
 raw = raw.lower()
 
-sent_tokens = nltk.sent_tokenize(raw)  # Converts to list of sentences
-word_tokens = nltk.word_tokenize(raw)  # Converts to list of words
+sent_tokens = nltk.sent_tokenize(raw) # Converts to list of sentences
+word_tokens = nltk.word_tokenize(raw) # Converts to list of words
 
 sentToken = sent_tokens[:4]
 wordToken = word_tokens[:4]
@@ -44,8 +45,11 @@ def greeting(sentence):
             return random.choice(GREETING_RESPONSES)
 
 def sentence_vector(sentence):
-    doc = nlp(sentence)
-    return doc.vector
+    words = LemNormalize(sentence)
+    word_vectors = [word2vec[word] for word in words if word in word2vec]
+    if len(word_vectors) == 0:
+        return np.zeros(word2vec.vector_size)
+    return np.mean(word_vectors, axis=0)
 
 def response(user_response):
     chatbot_response = ''
@@ -87,3 +91,6 @@ if __name__ == "__main__":
         else:
             flag = False
             print("Aneka: Bye! Have a great time!")
+
+
+    
